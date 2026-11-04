@@ -49,7 +49,8 @@ export const BrandFooter = () => (
 				{copyright(new Date().getFullYear())}
 				{' · '}
 				{i18n.t('landing.footer.disclaimer')}
-				{' · '}World of Warcraft® and its artwork are © Blizzard Entertainment.
+				{' · '}World of Warcraft® and Blizzard Entertainment® are trademarks or registered trademarks of Blizzard Entertainment, Inc. The class artwork
+				comes from the World of Warcraft Fan Site Kit, © Blizzard Entertainment, Inc., shown here in a free fan-made tool.
 			</p>
 		</div>
 	</footer>

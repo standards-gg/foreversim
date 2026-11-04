@@ -2,6 +2,7 @@ import { useActivateTab } from '@features/hooks/useActivateTab';
 import { applicableSteps, OnboardingOutlet, OnboardingTour, type SimulationState, type TourEnd, type TourRun, type TourStep } from '@features/onboarding';
 import { ResultsPanelStage } from '@features/results/components/SimResultsPanel/results_panel_store';
 import i18n from '@i18n/config';
+import { BRAND } from '@sim/constants/brand';
 import { ADDON_URL, DISCORD_URL } from '@sim/constants/other';
 import { isDevMode } from '@sim/utils/env';
 import { Button } from '@ui-kit/Button';
@@ -29,7 +30,7 @@ export const SimOnboarding = ({ host, simReady }: SimOnboardingProps) => {
 	return <OnboardingOutlet ready={simReady && !!host} autoOpen={!isDevMode()} renderTour={renderTour} />;
 };
 
-const LOGO = '/forever/assets/img/WoW-Simulator-Icon.png';
+const LOGO = BRAND.logo;
 
 // The links a card's words can carry, as `<addon>…</addon>` and `<discord>…</discord>`.
 const LINKS = {

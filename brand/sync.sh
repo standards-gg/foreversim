@@ -32,6 +32,8 @@ git fetch upstream master
 git merge --no-edit upstream/master
 
 npm ci --ignore-scripts
+# make copies assets in but never out, so a file upstream or we dropped would stay in the deploy.
+rm -rf dist/forever/assets
 make ${MAKE_SHELL:+SHELL="$MAKE_SHELL"} dist/forever/.dirstamp
 
 # The layer's own gates: its components, and no page head left pointing at wowsims.com.

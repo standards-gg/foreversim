@@ -9,14 +9,15 @@ back upstream. Everything that differs from upstream is this layer, kept to the 
 
 Ours alone (new files, never in conflict):
 
-| File                                            | What it is                                                                                                                                                                                               |
-| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ui/sim/constants/brand.ts`                     | Every name, link and image of the site (`BRAND`), the upstream credit (`UPSTREAM`), and the strings that name the site (`BRAND_STRINGS`: landing title and description, spec header label, tour welcome) |
-| `ui/app/brand/BrandMark.tsx`                    | The mark, name and tagline in the landing header and footer                                                                                                                                              |
-| `ui/app/brand/BrandFooter.tsx`                  | The landing footer: site links, the WoWSims credit with its licence and source, the legal line. Nothing fetched                                                                                          |
-| `tools/vite/brand_html.mts`                     | Rewrites the page heads at build time: title, description, canonical and social tags, icons; drops Google Analytics, the wowsims.com footer stylesheet and the schema.org block                          |
-| `assets/img/brand/`                             | The s.gg mark (SVG from the standards.gg theme), its 512 and 180 px renders and the favicon                                                                                                              |
-| `brand/vercel.json`, `brand/sync.sh`, this file | Hosting config and the update routine                                                                                                                                                                    |
+| File                                            | What it is                                                                                                                                                                                                                                                                |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ui/sim/constants/brand.ts`                     | Every name, link and image of the site (`BRAND`), the upstream credit (`UPSTREAM`), and the strings that name the site (`BRAND_STRINGS`: landing title and description, spec header label, tour welcome)                                                                  |
+| `ui/app/brand/BrandMark.tsx`                    | The mark, name and tagline in the landing header and footer                                                                                                                                                                                                               |
+| `ui/app/brand/BrandFooter.tsx`                  | The landing footer: site links, the WoWSims credit with its licence and source, the legal line. Nothing fetched                                                                                                                                                           |
+| `tools/vite/brand_html.mts`                     | Rewrites the page heads at build time: title, description, canonical and social tags, icons; drops Google Analytics, the wowsims.com footer stylesheet and the schema.org block                                                                                           |
+| `brand/backgrounds/`                            | `render.cjs` draws the 18 spec backgrounds under `assets/img/` from the Field Guides' art in `src/` (their gradient scenes, the Fan Site Kit class renders, the class emblems); the files keep upstream's names, so `specs.css` and the landing cards read them unchanged |
+| `assets/img/brand/`                             | The s.gg mark (SVG from the standards.gg theme), its 512 and 180 px renders and the favicon                                                                                                                                                                               |
+| `brand/vercel.json`, `brand/sync.sh`, this file | Hosting config and the update routine                                                                                                                                                                                                                                     |
 
 Upstream files with an edit of ours (each a few lines, a merge conflict here is small):
 
@@ -28,6 +29,13 @@ Upstream files with an edit of ours (each a few lines, a merge conflict here is 
 | `ui/app/landing/LandingPage.tsx`        | `BrandFooter` in place of `LandingFooter`               |
 | `ui/app/landing/LandingHeader.test.tsx` | the brand link test expects `BRAND.url`                 |
 | `ui/sim/constants/other.ts`             | `DISCORD_URL` and `GITHUB_ORG_URL` read `BRAND`         |
+
+Gone from upstream's tree: the WoWSims logo (`WoW-Simulator-Icon.png`; the tour shows the brand mark instead,
+`ui/app/SimOnboarding/SimOnboarding.tsx` reads `BRAND.logo`), the Mists of Pandaria image, and the unreferenced
+`smite_priest_background.jpg` and `gauge.svg`. The spec backgrounds under `assets/img/` are ours (see
+`brand/backgrounds/`), written over upstream's retail-era artwork under the same names; a merge that brings a new
+upstream background keeps ours (`git checkout --ours`) and the renderer adds a line for a new spec. The Fan Site Kit
+licence asks for its notice wherever the class renders show, so the landing footer carries it.
 
 Untouched on purpose: `ui/index.html` and `ui/index_template.html` (the plugin rewrites them), the locale files, the
 spec pages, and `LandingBrand`/`LandingFooter` (still upstream's; only no longer rendered). The spec pages' header
