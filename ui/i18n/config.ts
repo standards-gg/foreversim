@@ -1,3 +1,4 @@
+import { BRAND_STRINGS } from '@sim/constants/brand';
 import i18n, { Resource } from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import resources from 'virtual:i18next-loader';
@@ -17,5 +18,8 @@ i18n.use(initReactI18next).init({
 		return acc;
 	}, {}),
 });
+
+// The site's own names over the English strings (ui/sim/constants/brand.ts).
+i18n.addResourceBundle('en', 'translation', BRAND_STRINGS, true, true);
 
 export default i18n;

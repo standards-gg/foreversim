@@ -11,6 +11,7 @@ import { watchAndRun } from 'vite-plugin-watch-and-run';
 import { checker } from 'vite-plugin-checker';
 import i18nextLoader from 'vite-plugin-i18next-loader';
 
+import { brandHtml } from './tools/vite/brand_html.mjs';
 import { readBuildInfo } from './tools/vite/build_info.mjs';
 import { simlPlugin } from './tools/vite/siml.mjs';
 import { SPEC_PAGE_TEMPLATE, specPages } from './tools/vite/spec_pages.mjs';
@@ -165,6 +166,7 @@ export default defineConfig(({ command, mode }) => {
 			]),
 			serveExternalAssets(),
 			specPages(BASE_PATH),
+			brandHtml(),
 			simlPlugin(),
 			checker({
 				root: BASE_PATH,

@@ -1,6 +1,8 @@
 import { ProtoVersion } from '@generated/proto/common';
 import { readMessageOption } from '@protobuf-ts/runtime';
 
+import { BRAND } from './brand';
+
 export enum Phase {
 	Phase1 = 1,
 	Phase2,
@@ -35,8 +37,8 @@ export const REPO_CHOOSE_NEW_ISSUE_URL = `${REPO_NEW_ISSUE_URL}/choose`;
 export const WOWSIMS_URL = 'https://www.wowsims.com/';
 // The site list and footer content every WoWSims site shares, published by wowsims/wowsims.github.io
 export const VERSIONS_MANIFEST_URL = `${WOWSIMS_URL}versions.json`;
-export const DISCORD_URL = 'https://discord.gg/p3DgvmnDCS';
-export const GITHUB_ORG_URL = 'https://github.com/wowsims/';
+export const DISCORD_URL = BRAND.discordUrl;
+export const GITHUB_ORG_URL = BRAND.repoUrl;
 export const ADDON_URL = 'https://www.curseforge.com/wow/addons/wowsimsexporter';
 export const PATREON_URL = 'https://www.patreon.com/wowsims';
 

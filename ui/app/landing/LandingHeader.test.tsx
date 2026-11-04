@@ -1,5 +1,5 @@
 import i18n from '@i18n/config';
-import { WOWSIMS_URL } from '@sim/constants/other';
+import { BRAND } from '@sim/constants/brand';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
@@ -32,11 +32,11 @@ describe('LandingHeader', () => {
 		});
 	});
 
-	it('links the brand to wowsims.com in the same tab', () => {
+	it('links the brand to the site in the same tab', () => {
 		render(<LandingHeader />);
 		const brand = screen.getByTestId('landing-brand');
-		expect(brand.getAttribute('href')).toBe(WOWSIMS_URL);
+		expect(brand.getAttribute('href')).toBe(BRAND.url);
 		expect(brand.getAttribute('target')).toBeNull();
-		expect(screen.getByTestId('wowsims-title').closest('a')).toBe(brand);
+		expect(screen.getByTestId('brand-title').closest('a')).toBe(brand);
 	});
 });

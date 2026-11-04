@@ -1,8 +1,8 @@
+import { BrandFooter } from '@app/brand/BrandFooter';
 import { PlayerClasses } from '@sim/player/classes/index';
 
 import { LANDING_CLASS_ORDER } from './landing_classes';
 import { LandingClassCard } from './LandingClassCard';
-import { LandingFooter } from './LandingFooter';
 import { LandingHeader } from './LandingHeader';
 import { LandingHero } from './LandingHero';
 
@@ -21,7 +21,7 @@ export const LandingPage = () => (
 					</div>
 				</div>
 			</main>
-			<LandingFooter />
+			<BrandFooter />
 		</div>
 	</>
 );

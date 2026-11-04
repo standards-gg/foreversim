@@ -1,3 +1,4 @@
+import { BrandMark } from '@app/brand/BrandMark';
 import i18n from '@i18n/config';
 import { ADDON_URL, DISCORD_URL, GITHUB_ORG_URL, PATREON_URL } from '@sim/constants/other';
 import { Button } from '@ui-kit/Button';
@@ -5,7 +6,6 @@ import { Icon } from '@ui-kit/Icon';
 import clsx from 'clsx';
 import { useState } from 'react';
 
-import { LandingBrand } from './LandingBrand';
 import { LandingLanguageMenu } from './LandingLanguageMenu';
 
 const COLLAPSE_ID = 'homepageHeaderCollapse';
@@ -32,7 +32,7 @@ export const LandingHeader = () => {
 			<div className="ui-landing-container flex py-4">
 				<nav className="relative flex w-full flex-wrap items-center justify-between md:justify-start">
 					<div className="order-0 flex max-md:w-full max-md:items-center max-md:justify-between">
-						<LandingBrand />
+						<BrandMark />
 						{toggler('bars')}
 					</div>
 					<div
