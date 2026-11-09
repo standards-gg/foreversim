@@ -1,0 +1,248 @@
+/* The look of standards.gg over the landing page: its palette (void, parchment, gold), its display face (Cinzel)
+   and the HADAL mark. The @theme block adds tokens and sets the brand colours; the rules after it sit outside the
+   cascade layers, so they win over upstream's component classes and utilities while upstream's own stylesheets stay
+   unedited. brand/README.md lists the layer. */
+@theme static {
+	--color-brand: #d4b062;
+	--color-brand-bright: #f1d58f;
+	--color-expansion: #f1d58f;
+	--color-void: #0a0908;
+	--color-parchment: #efe7d8;
+	--color-parchment-muted: #b8ab95;
+	--color-panel-dark: #1a1612;
+	--color-panel-dark-border: #3a3125;
+	--color-gold-hairline: rgb(216 198 154 / 0.12);
+	--color-landing-glow: rgb(212 176 98 / 0.1);
+	--font-display: Cinzel, Georgia, serif;
+	--tracking-brand: 0.14em;
+	--tracking-heading: 0.04em;
+	--radius-landing-card: 0.5rem;
+	--background-image-landing-glow: radial-gradient(1200px 600px at 50% -200px, var(--color-landing-glow), transparent 70%);
+	--background-image-brand-text: linear-gradient(180deg, var(--color-brand-bright), var(--color-brand));
+}
+
+/* One variable file, latin only (assets/fonts/Cinzel-OFL.txt is its licence). */
+@font-face {
+	font-family: Cinzel;
+	src: url(/forever/assets/fonts/Cinzel-Variable.woff2) format('woff2');
+	font-weight: 400 900;
+	font-display: swap;
+}
+
+body {
+	background-color: var(--color-void);
+}
+
+/* The cover behind the landing page, with the gold glow standards.gg has at the top of its pages. */
+.bg-landing {
+	background-image: var(--background-image-landing-glow), var(--background-image-landing);
+	opacity: 0.12;
+}
+
+#homepage > header {
+	border-color: var(--color-gold-hairline);
+	background-color: color-mix(in srgb, var(--color-void) 88%, transparent);
+	backdrop-filter: blur(10px);
+}
+
+@variant max-md {
+	#homepageHeaderCollapse {
+		background-color: color-mix(in srgb, var(--color-void) 95%, transparent);
+	}
+}
+
+/* The mark and wordmark (BrandMark.tsx). */
+.ui-landing-brand {
+	gap: --spacing(3);
+	color: var(--color-parchment);
+
+	&:hover,
+	&:focus-visible {
+		color: var(--color-parchment);
+	}
+
+	&:hover .ui-landing-brand-logo {
+		rotate: none;
+	}
+}
+
+.ui-landing-brand-logo {
+	width: --spacing(10);
+}
+
+.ui-brand-mark-name {
+	font-family: var(--font-display);
+	font-size: var(--text-lg);
+	font-weight: 700;
+	letter-spacing: var(--tracking-brand);
+	text-transform: uppercase;
+}
+
+.ui-brand-mark-domain {
+	color: var(--color-brand);
+}
+
+.ui-brand-mark-tagline {
+	margin-top: --spacing(1);
+	font-size: var(--text-2xs);
+	letter-spacing: var(--tracking-heading);
+	text-transform: uppercase;
+	color: var(--color-parchment-muted);
+}
+
+/* The hero, the navigation and the action buttons. */
+.ui-landing-hero-title {
+	font-family: var(--font-display);
+	font-weight: 700;
+	letter-spacing: var(--tracking-heading);
+	color: var(--color-parchment);
+
+	& .text-expansion {
+		background: var(--background-image-brand-text);
+		background-clip: text;
+		color: transparent;
+	}
+}
+
+.ui-landing-hero-blurb {
+	color: color-mix(in srgb, var(--color-parchment) 80%, transparent);
+}
+
+.ui-landing-nav-link {
+	color: var(--color-parchment);
+
+	&:hover,
+	&:focus-visible {
+		color: var(--color-brand);
+	}
+}
+
+.ui-landing-action {
+	border-radius: var(--radius-sm);
+	border-color: var(--color-panel-dark-border);
+	background-color: color-mix(in srgb, var(--color-panel-dark) 90%, transparent);
+	color: var(--color-parchment);
+
+	&:hover,
+	&:focus-visible {
+		border-color: color-mix(in srgb, var(--color-brand) 60%, transparent);
+		background-color: color-mix(in srgb, var(--color-panel-dark) 85%, var(--color-brand) 15%);
+		color: var(--color-parchment);
+	}
+}
+
+.ui-landing-action-discord {
+	border-color: var(--color-discord);
+	background-color: var(--color-discord);
+	color: var(--color-white);
+
+	&:hover,
+	&:focus-visible {
+		border-color: var(--color-discord-hover);
+		background-color: var(--color-discord-hover);
+		color: var(--color-white);
+	}
+}
+
+.ui-landing-action-addon {
+	border-color: color-mix(in srgb, var(--color-brand) 60%, transparent);
+	color: var(--color-brand);
+
+	&:hover,
+	&:focus-visible {
+		border-color: var(--color-brand);
+		background-color: color-mix(in srgb, var(--color-brand) 12%, transparent);
+		color: var(--color-brand);
+	}
+}
+
+/* The class cards keep their class colours on the panel tone of standards.gg's tiles. */
+.ui-landing-class-card {
+	border-color: var(--color-panel-dark-border);
+	background: linear-gradient(
+		135deg,
+		color-mix(in srgb, var(--ui-landing-card-accent) 25%, var(--color-panel-dark)),
+		color-mix(in srgb, var(--color-panel-dark) 50%, var(--color-black))
+	);
+
+	&:hover,
+	&:focus-within {
+		border-color: var(--ui-landing-card-accent);
+	}
+}
+
+/* The footer (BrandFooter.tsx). */
+.ui-brand-footer {
+	margin-top: --spacing(12);
+	border-top: 1px solid var(--color-gold-hairline);
+	background-color: color-mix(in srgb, var(--color-void) 80%, transparent);
+	padding-block: --spacing(10);
+	font-size: var(--text-sm);
+	color: var(--color-parchment-muted);
+}
+
+.ui-brand-footer-columns {
+	display: grid;
+	gap: --spacing(8);
+
+	@variant md {
+		grid-template-columns: 1.5fr repeat(3, 1fr);
+	}
+}
+
+.ui-brand-footer-tagline {
+	margin: --spacing(4) 0 0;
+	max-width: --spacing(80);
+	line-height: 1.6;
+}
+
+.ui-brand-footer-heading {
+	margin: 0 0 --spacing(3);
+	font-family: var(--font-display);
+	font-size: var(--text-xs);
+	font-weight: 700;
+	letter-spacing: var(--tracking-brand);
+	text-transform: uppercase;
+	color: var(--color-parchment);
+}
+
+.ui-brand-footer-links {
+	display: flex;
+	flex-direction: column;
+	gap: --spacing(2);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ui-brand-footer-link {
+	color: var(--color-parchment-muted);
+	text-decoration: none;
+
+	&:hover,
+	&:focus-visible {
+		color: var(--color-brand);
+	}
+}
+
+.ui-brand-footer-legal {
+	display: flex;
+	flex-direction: column;
+	gap: --spacing(2);
+	margin-top: --spacing(8);
+	border-top: 1px solid var(--color-gold-hairline);
+	padding-top: --spacing(6);
+	font-size: var(--text-xs);
+	line-height: 1.7;
+
+	& p {
+		margin: 0;
+	}
+
+	& .ui-brand-footer-link {
+		color: var(--color-parchment);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		text-decoration-color: color-mix(in srgb, var(--color-brand) 60%, transparent);
+	}
+}

@@ -13,7 +13,9 @@ Ours alone (new files, never in conflict):
 | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ui/sim/constants/brand.ts`                     | Every name, link and image of the site (`BRAND`), the upstream credit (`UPSTREAM`), and the strings that name the site (`BRAND_STRINGS`: landing title and description, spec header label, tour welcome)                                                                  |
 | `ui/app/brand/BrandMark.tsx`                    | The mark, name and tagline in the landing header and footer                                                                                                                                                                                                               |
-| `ui/app/brand/BrandFooter.tsx`                  | The landing footer: site links, the WoWSims credit with its licence and source, the legal line. Nothing fetched                                                                                                                                                           |
+| `ui/app/brand/BrandFooter.tsx`                  | The landing footer: the guild's tools, channels and the simulator's links in three columns, the WoWSims credit with its licence and source, the legal line. Nothing fetched                                                                                               |
+| `ui/app/brand/brand.css`                        | The look of standards.gg: its palette, Cinzel and the HADAL mark as tokens, and the rules over upstream's landing classes, outside the cascade layers so upstream's stylesheets stay unedited                                                                             |
+| `assets/fonts/Cinzel-*`                         | Cinzel, the display face of standards.gg (one variable woff2, latin only), with its OFL licence                                                                                                                                                                           |
 | `tools/vite/brand_html.mts`                     | Rewrites the page heads at build time: title, description, canonical and social tags, icons; drops Google Analytics, the wowsims.com footer stylesheet and the schema.org block                                                                                           |
 | `brand/backgrounds/`                            | `render.cjs` draws the 18 spec backgrounds under `assets/img/` from the Field Guides' art in `src/` (their gradient scenes, the Fan Site Kit class renders, the class emblems); the files keep upstream's names, so `specs.css` and the landing cards read them unchanged |
 | `assets/img/brand/`                             | The s.gg mark (SVG from the standards.gg theme), its 512 and 180 px renders and the favicon                                                                                                                                                                               |
@@ -21,14 +23,15 @@ Ours alone (new files, never in conflict):
 
 Upstream files with an edit of ours (each a few lines, a merge conflict here is small):
 
-| File                                    | The edit                                                |
-| --------------------------------------- | ------------------------------------------------------- |
-| `vite.config.mts`                       | imports and registers `brandHtml()` after `specPages()` |
-| `ui/i18n/config.ts`                     | lays `BRAND_STRINGS` over the English locale after init |
-| `ui/app/landing/LandingHeader.tsx`      | `BrandMark` in place of `LandingBrand`                  |
-| `ui/app/landing/LandingPage.tsx`        | `BrandFooter` in place of `LandingFooter`               |
-| `ui/app/landing/LandingHeader.test.tsx` | the brand link test expects `BRAND.url`                 |
-| `ui/sim/constants/other.ts`             | `DISCORD_URL` and `GITHUB_ORG_URL` read `BRAND`         |
+| File                                    | The edit                                                       |
+| --------------------------------------- | -------------------------------------------------------------- |
+| `vite.config.mts`                       | imports and registers `brandHtml()` after `specPages()`        |
+| `ui/i18n/config.ts`                     | lays `BRAND_STRINGS` over the English locale after init        |
+| `ui/app/landing/LandingHeader.tsx`      | `BrandMark` in place of `LandingBrand`                         |
+| `ui/app/landing/LandingPage.tsx`        | `BrandFooter` in place of `LandingFooter`                      |
+| `ui/app/landing/LandingHeader.test.tsx` | the brand link test expects `BRAND.url`                        |
+| `ui/sim/constants/other.ts`             | `DISCORD_URL`, `GITHUB_ORG_URL` and `PATREON_URL` read `BRAND` |
+| `ui/styles/main.css`                    | imports `ui/app/brand/brand.css` after the theme               |
 
 Gone from upstream's tree: the WoWSims logo (`WoW-Simulator-Icon.png`; the tour shows the brand mark instead,
 `ui/app/SimOnboarding/SimOnboarding.tsx` reads `BRAND.logo`), the Mists of Pandaria image, and the unreferenced
@@ -37,8 +40,11 @@ Gone from upstream's tree: the WoWSims logo (`WoW-Simulator-Icon.png`; the tour 
 upstream background keeps ours (`git checkout --ours`) and the renderer adds a line for a new spec. The Fan Site Kit
 licence asks for its notice wherever the class renders show, so the landing footer carries it.
 
-Untouched on purpose: `ui/index.html` and `ui/index_template.html` (the plugin rewrites them), the locale files, the
-spec pages, and `LandingBrand`/`LandingFooter` (still upstream's; only no longer rendered). The spec pages' header
+Untouched on purpose: `ui/index.html` and `ui/index_template.html` (the plugin rewrites them), the locale files
+(`BRAND_STRINGS` lays the site's heading, welcome text and Discord button over them), the spec pages, `Landing.css` and
+the theme files (`brand.css` overrides them), and `LandingBrand`/`LandingFooter` (still upstream's; only no longer
+rendered). Discord and GitHub point at the Standards.gg server and the `standards-dev` organisation; the Patreon stays
+WoWSims' until Standards.gg has one (`BRAND.patreonUrl`). The spec pages' header
 keeps upstream's GitHub icon on `wowsims/forever`, and the footer credits WoWSims on every landing page: the MIT
 licence asks that the notice stays with the code, and a visible link back is the fork's own rule.
 

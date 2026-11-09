@@ -1,11 +1,11 @@
 import i18n from '@i18n/config';
 import { BRAND, UPSTREAM } from '@sim/constants/brand';
-import { ADDON_URL, DISCORD_URL, GITHUB_ORG_URL, PATREON_URL } from '@sim/constants/other';
+import { PATREON_URL } from '@sim/constants/other';
 import { render, screen } from '@testing-library/react';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import english from '../../../assets/locales/en/translation.json';
-import { BrandFooter } from './BrandFooter';
+import { BrandFooter, FOOTER_COLUMNS } from './BrandFooter';
 
 beforeAll(() => {
 	i18n.addResourceBundle('en', 'translation', english, true, true);
@@ -15,17 +15,16 @@ afterAll(() => {
 });
 
 describe('BrandFooter', () => {
-	it('links Discord, GitHub and the addon in new tabs', () => {
+	it('names every column and opens each of its links in a new tab with no opener', () => {
 		render(<BrandFooter />);
-		const links: [string, string][] = [
-			['landing.header.discord', DISCORD_URL],
-			['landing.header.github', GITHUB_ORG_URL],
-			['landing.footer.addon', ADDON_URL],
-		];
-		links.forEach(([label, url]) => {
-			const link = screen.getByRole('link', { name: i18n.t(label) });
-			expect(link.getAttribute('href')).toBe(url);
-			expect(link.getAttribute('target')).toBe('_blank');
+		FOOTER_COLUMNS.forEach(column => {
+			expect(screen.getByRole('navigation', { name: column.title })).toBeTruthy();
+			column.links.forEach(link => {
+				const anchor = screen.getByRole('link', { name: link.label });
+				expect(anchor.getAttribute('href')).toBe(link.href);
+				expect(anchor.getAttribute('target')).toBe('_blank');
+				expect(anchor.getAttribute('rel')).toBe('noopener noreferrer');
+			});
 		});
 	});
 
@@ -39,11 +38,12 @@ describe('BrandFooter', () => {
 		expect(upstream.textContent).toContain('Built on WoWSims');
 	});
 
-	it('names the site holder and the fan-project disclaimer in the legal line', () => {
+	it('names the site holder, the guild and the fan-project disclaimer in the legal line', () => {
 		render(<BrandFooter />);
 		const legal = screen.getByTestId('brand-footer-legal').textContent;
 		const year = new Date().getFullYear();
 		expect(legal).toContain(year === BRAND.copyrightStartYear ? `© ${year} ${BRAND.name}` : `© ${BRAND.copyrightStartYear}-${year} ${BRAND.name}`);
+		expect(legal).toContain('HADAL');
 		expect(legal).toContain(i18n.t('landing.footer.disclaimer'));
 	});
 });
