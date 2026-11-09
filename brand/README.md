@@ -23,15 +23,17 @@ Ours alone (new files, never in conflict):
 
 Upstream files with an edit of ours (each a few lines, a merge conflict here is small):
 
-| File                                    | The edit                                                       |
-| --------------------------------------- | -------------------------------------------------------------- |
-| `vite.config.mts`                       | imports and registers `brandHtml()` after `specPages()`        |
-| `ui/i18n/config.ts`                     | lays `BRAND_STRINGS` over the English locale after init        |
-| `ui/app/landing/LandingHeader.tsx`      | `BrandMark` in place of `LandingBrand`                         |
-| `ui/app/landing/LandingPage.tsx`        | `BrandFooter` in place of `LandingFooter`                      |
-| `ui/app/landing/LandingHeader.test.tsx` | the brand link test expects `BRAND.url`                        |
-| `ui/sim/constants/other.ts`             | `DISCORD_URL`, `GITHUB_ORG_URL` and `PATREON_URL` read `BRAND` |
-| `ui/styles/main.css`                    | imports `ui/app/brand/brand.css` after the theme               |
+| File                                                                    | The edit                                                                    |
+| ----------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `vite.config.mts`                                                       | imports and registers `brandHtml()` after `specPages()`                     |
+| `ui/i18n/config.ts`                                                     | lays `BRAND_STRINGS` over the English locale after init                     |
+| `ui/app/landing/LandingHeader.tsx`                                      | `BrandMark` in place of `LandingBrand`                                      |
+| `ui/app/landing/LandingPage.tsx`                                        | `BrandFooter` in place of `LandingFooter`                                   |
+| `ui/app/landing/LandingHeader.test.tsx`                                 | the brand link test expects `BRAND.url`                                     |
+| `ui/sim/constants/other.ts`                                             | `DISCORD_URL`, `GITHUB_ORG_URL`, `ADDON_URL` and `PATREON_URL` read `BRAND` |
+| `ui/styles/main.css`                                                    | imports `ui/app/brand/brand.css` after the theme                            |
+| `ui/features/import-export/components/Importer/AddonImporterDialog.tsx` | the addon link reads `ADDON_URL`                                            |
+| `ui/features/import-export/importers/addon.ts`                          | the addon version check reads `BRAND.addonReleasesApi`                      |
 
 Gone from upstream's tree: the WoWSims logo (`WoW-Simulator-Icon.png`; the tour shows the brand mark instead,
 `ui/app/SimOnboarding/SimOnboarding.tsx` reads `BRAND.logo`), the Mists of Pandaria image, and the unreferenced

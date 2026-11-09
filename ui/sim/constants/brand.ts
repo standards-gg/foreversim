@@ -13,6 +13,10 @@ export const BRAND = {
 	// The standards.gg GitHub organisation; the fork itself is repoUrl.
 	githubUrl: 'https://github.com/standards-dev',
 	repoUrl: 'https://github.com/standards-gg/foreversim',
+	// The in-game exporter, the Standards.gg fork of WowSimsExporter: its releases page until it is on CurseForge,
+	// and the releases API the importer reads the current version from.
+	addonUrl: 'https://github.com/standards-gg/foreversim-exporter/releases',
+	addonReleasesApi: 'https://api.github.com/repos/standards-gg/foreversim-exporter/releases/latest',
 	// WoWSims' Patreon until Standards.gg has its own.
 	patreonUrl: 'https://www.patreon.com/wowsims',
 	// The guild's other Forever tools and its channels, in the landing footer.
@@ -50,7 +54,17 @@ export const BRAND_STRINGS = {
 				"<brand>Standards.gg</brand> is the HADAL guild's home for <expansion>World of Warcraft®: Forever</expansion>: the Atlas, the Talent Calculator, the Guide and now this simulator. Sim your DPS, compare gear and find the upgrade that counts. The engine is <bold>WoWSims</bold>, the fan-made open-source simulator that has covered every Classic release since 2021, and we build on it in the open.",
 		},
 		actions: { discord: 'Join the Discord' },
+		header: { addon: 'Download the ForeverSims Exporter addon' },
+	},
+	import: { addon: { addon_link: 'ForeverSims Exporter in-game addon' } },
+	bulk_tab: {
+		import_modal: { description_line1: 'Import bag items from a JSON file, which can be created by the ForeverSims Exporter in-game addon.' },
+	},
+	onboarding: {
+		steps: {
+			welcome: { title: `Welcome to ${BRAND.product}` },
+			import: { body: 'Bring in your character with the <addon>ForeverSims Exporter addon</addon>, or a build from a link someone shared.' },
+		},
 	},
 	sidebar: { header: { title: `${BRAND.name} - ${BRAND.product}` } },
-	onboarding: { steps: { welcome: { title: `Welcome to ${BRAND.product}` } } },
 } as const;
