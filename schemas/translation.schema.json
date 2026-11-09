@@ -48,7 +48,7 @@
 				"header": {
 					"type": "object",
 					"properties": {
-						"wowsims": {
+						"brand": {
 							"type": "string"
 						},
 						"subtitle": {
@@ -68,7 +68,7 @@
 						}
 					},
 					"additionalProperties": false,
-					"required": ["wowsims", "subtitle", "discord", "github", "addon", "patreon"]
+					"required": ["brand", "subtitle", "discord", "github", "addon", "patreon"]
 				},
 				"actions": {
 					"type": "object",
@@ -95,7 +95,49 @@
 						"disclaimer": {
 							"type": "string"
 						},
-						"sims": {
+						"builtOn": {
+							"type": "string"
+						},
+						"tagline": {
+							"type": "string"
+						},
+						"standards": {
+							"type": "string"
+						},
+						"community": {
+							"type": "string"
+						},
+						"simulator": {
+							"type": "string"
+						},
+						"home": {
+							"type": "string"
+						},
+						"atlas": {
+							"type": "string"
+						},
+						"talents": {
+							"type": "string"
+						},
+						"guide": {
+							"type": "string"
+						},
+						"discord": {
+							"type": "string"
+						},
+						"github": {
+							"type": "string"
+						},
+						"youtube": {
+							"type": "string"
+						},
+						"instagram": {
+							"type": "string"
+						},
+						"source": {
+							"type": "string"
+						},
+						"upstream": {
 							"type": "string"
 						},
 						"addon": {
@@ -106,7 +148,27 @@
 						}
 					},
 					"additionalProperties": false,
-					"required": ["copyright", "disclaimer", "sims", "addon", "patreon"]
+					"required": [
+						"copyright",
+						"disclaimer",
+						"builtOn",
+						"tagline",
+						"standards",
+						"community",
+						"simulator",
+						"home",
+						"atlas",
+						"talents",
+						"guide",
+						"discord",
+						"github",
+						"youtube",
+						"instagram",
+						"source",
+						"upstream",
+						"addon",
+						"patreon"
+					]
 				}
 			},
 			"additionalProperties": false,

@@ -41,8 +41,8 @@ export const Step: Story = {
 export const Welcome: Story = {
 	args: {
 		kind: 'welcome',
-		media: <img className="size-16 self-center" src="/forever/assets/img/WoW-Simulator-Icon.png" alt="" />,
-		title: 'Welcome to WoWSims',
+		media: <img className="size-16 self-center" src="/forever/assets/img/standards-gg-hadal-mark.svg" alt="" />,
+		title: 'Welcome to the Forever Simulator',
 		body: 'A short look around the page, from your gear to a finished sim. Move through it with the left and right arrow keys, or skip it any time; Sim Options can start it again.',
 		onPrevious: undefined,
 	},

@@ -18,7 +18,7 @@ import type { Plugin } from 'vite';
 export const SPEC_PAGE_TEMPLATE = 'index_template.html';
 
 /** The production origin; canonical and `og:url` links must be absolute. */
-const SITE_ORIGIN = 'https://www.wowsims.com';
+const SITE_ORIGIN = 'https://sim.standards.gg';
 
 interface SpecPageMetadata {
 	title: string;

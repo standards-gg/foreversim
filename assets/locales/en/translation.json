@@ -7,30 +7,44 @@
 			"toggle": "Toggle navigation"
 		},
 		"home": {
-			"title": "WoWSims - Forever DPS & Gear Simulators",
-			"description": "Free, open-source World of Warcraft® Forever simulators. Sim your DPS, compare gear and optimize your character.",
-			"heading": "<expansion>Forever</expansion> Simulations",
+			"title": "Forever Simulator · Standards.gg",
+			"description": "The World of Warcraft® Forever simulator by Standards.gg · HADAL: free, open source, in your browser. Sim your DPS, compare gear and optimize your character.",
+			"heading": "<expansion>Forever</expansion> Simulator",
 			"allSpecs": "All Specializations",
-			"welcomeDescription": "<brand>WoWSims</brand> is a fan-made open-source project started in 2021 with the goal of providing user-friendly tools for players to simulate their gameplay in <bold>World of Warcraft® Classic</bold>. Since then we've supported every Classic release, and now we're carrying that forward into <expansion>World of Warcraft®: Forever</expansion>. It's thanks to dozens of developers, hundreds of players, and thousands of hours of time that we've been able to keep the project going so that our users can continue to make the most out of their gameplay."
+			"welcomeDescription": "<brand>Standards.gg</brand> is the HADAL guild's home for <expansion>World of Warcraft®: Forever</expansion>: the Atlas, the Talent Calculator, the Guide and now this simulator. Sim your DPS, compare gear and find the upgrade that counts. The engine is <wowsims>WoWSims</wowsims>, the fan-made open-source simulator that has covered every Classic release since 2021, and we build on it in the open."
 		},
 		"header": {
-			"wowsims": "WoWSims",
-			"subtitle": "World of Warcraft Simulations",
+			"brand": "Standards.gg",
+			"subtitle": "Forever Simulator",
 			"discord": "Discord",
 			"github": "GitHub",
 			"addon": "Download the WoWSims Exporter addon",
 			"patreon": "Become a Patron!"
 		},
 		"actions": {
-			"discord": "Join our Discord",
+			"discord": "Join the Discord",
 			"github": "Contribute on GitHub",
 			"addon": "Get the Exporter addon"
 		},
 		"footer": {
-			"copyright": "© {{startYear}}-{{year}} {{holder}}",
+			"copyright": "© {{year}} Standards.gg · HADAL",
 			"disclaimer": "A fan-made project, not affiliated with Blizzard Entertainment.",
-			"sims": "Sims",
-			"addon": "Addon",
+			"builtOn": "Built on <wowsims>WoWSims</wowsims> (MIT)",
+			"tagline": "The HADAL guild's tools for World of Warcraft®: Forever.",
+			"standards": "Standards.gg",
+			"community": "Community",
+			"simulator": "Simulator",
+			"home": "standards.gg",
+			"atlas": "Forever Atlas",
+			"talents": "Talent Calculator",
+			"guide": "Forever Guide",
+			"discord": "Discord",
+			"github": "GitHub",
+			"youtube": "YouTube",
+			"instagram": "Instagram",
+			"source": "Source on GitHub",
+			"upstream": "WoWSims upstream",
+			"addon": "Exporter addon",
 			"patreon": "Patreon"
 		}
 	},
@@ -3112,7 +3126,7 @@
 			"finish": "Done",
 			"steps": {
 				"welcome": {
-					"title": "Welcome to WoWSims",
+					"title": "Welcome to the Forever Simulator",
 					"body": "A short look around the page, from your gear to a finished sim. Move through it with the left and right arrow keys, or skip it any time; Sim Options can start it again."
 				},
 				"gear_tab": {
@@ -3466,7 +3480,7 @@
 			}
 		},
 		"header": {
-			"title": "WoWSims - Forever",
+			"title": "Standards.gg · Forever",
 			"phase": "{{phase}} - {{status}}"
 		},
 		"results": {

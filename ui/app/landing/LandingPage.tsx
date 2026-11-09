@@ -8,7 +8,9 @@ import { LandingHero } from './LandingHero';
 
 export const LandingPage = () => (
 	<>
-		<div className="fixed -z-1 h-full w-full bg-landing bg-cover bg-center bg-no-repeat opacity-15" />
+		<div className="fixed -z-1 h-full w-full bg-void" />
+		<div className="fixed -z-1 h-full w-full bg-landing bg-cover bg-center bg-no-repeat opacity-10" />
+		<div className="fixed -z-1 h-full w-full bg-landing-glow" />
 		<div id="homepage" className="flex min-h-full flex-col">
 			<LandingHeader />
 			<main className="grow">

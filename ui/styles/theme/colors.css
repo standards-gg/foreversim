@@ -41,12 +41,20 @@
 	--color-cancel-hover: #ea937d;
 	--color-cancel-active: #eb9985;
 
-	--color-brand: #f8b700;
+	--color-brand: #d4b062;
+	--color-brand-bright: #f1d58f;
 	--color-expansion: #4fc3f7;
+	--color-void: #0a0908;
+	--color-parchment: #efe7d8;
+	--color-parchment-muted: #b8ab95;
+	--color-panel-dark: #1a1612;
+	--color-panel-dark-border: #3a3125;
+	--color-gold-hairline: rgb(216 198 154 / 0.12);
+	--color-landing-glow: rgb(212 176 98 / 0.1);
 	--color-discord: #5865f2;
 	--color-discord-hover: #4752c4;
 	--color-landing-sheen-tint: rgb(255 250 235 / 0.3);
-	--color-landing-action-hover: color-mix(in srgb, var(--color-background) 75%, var(--color-white) 10%);
+	--color-landing-action-hover: color-mix(in srgb, var(--color-panel-dark) 85%, var(--color-brand) 15%);
 
 	--color-muted: #dee2e6bf;
 	--color-link: #a5b1d6;

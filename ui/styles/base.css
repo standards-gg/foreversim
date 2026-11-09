@@ -19,6 +19,14 @@
 	font-weight: bold;
 }
 
+/* The Standards.gg display face (the wordmark and headings on standards.gg): one variable file, latin only. */
+@font-face {
+	font-family: Cinzel;
+	src: url(/forever/assets/fonts/Cinzel-Variable.woff2) format('woff2');
+	font-weight: 400 900;
+	font-display: swap;
+}
+
 :root {
 	--font-size-root: 14px;
 	font-size: var(--font-size-root);

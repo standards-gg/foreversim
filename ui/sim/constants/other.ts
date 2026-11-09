@@ -22,9 +22,10 @@ export enum LaunchStatus {
 
 export const CURRENT_API_VERSION: number = readMessageOption(ProtoVersion, 'proto.current_version_number')! as number;
 
-// Github pages serves our site under the /forever directory
+// The site is served under the /forever directory, as on wowsims.com, so a page keeps its URL across both.
 export const REPO_NAME = 'forever';
-export const REPO_URL = `https://github.com/wowsims/${REPO_NAME}`;
+// The Standards.gg fork of wowsims/forever: commit, release and issue links point at it.
+export const REPO_URL = 'https://github.com/standards-gg/foreversim';
 export const REPO_RELEASES_URL = `${REPO_URL}/releases`;
 // The repository whose CI built this page (see vite.config.mts). Empty for a build made outside
 // GitHub Actions, which then offers no issue links at all.
@@ -32,12 +33,20 @@ export const ISSUES_REPO: string = import.meta.env.VITE_GITHUB_REPOSITORY;
 export const REPO_NEW_ISSUE_URL = `https://github.com/${ISSUES_REPO}/issues/new`;
 export const REPO_CHOOSE_NEW_ISSUE_URL = `${REPO_NEW_ISSUE_URL}/choose`;
 
+// The project this fork builds on (MIT); the landing page credits and links it.
 export const WOWSIMS_URL = 'https://www.wowsims.com/';
-// The site list and footer content every WoWSims site shares, published by wowsims/wowsims.github.io
-export const VERSIONS_MANIFEST_URL = `${WOWSIMS_URL}versions.json`;
-export const DISCORD_URL = 'https://discord.gg/p3DgvmnDCS';
-export const GITHUB_ORG_URL = 'https://github.com/wowsims/';
+export const UPSTREAM_REPO_URL = 'https://github.com/wowsims/forever';
+// Standards.gg, the HADAL guild's site, and its other WoW: Forever tools.
+export const STANDARDS_URL = 'https://standards.gg/';
+export const ATLAS_URL = 'https://atlas.standards.gg/';
+export const TALENTS_URL = 'https://talents.standards.gg/';
+export const GUIDE_URL = 'https://guide.standards.gg/';
+export const YOUTUBE_URL = 'https://www.youtube.com/@standards-gg';
+export const INSTAGRAM_URL = 'https://www.instagram.com/standards.gg';
+export const DISCORD_URL = 'https://discord.gg/standards-gg';
+export const GITHUB_ORG_URL = 'https://github.com/standards-dev';
 export const ADDON_URL = 'https://www.curseforge.com/wow/addons/wowsimsexporter';
+// WoWSims' Patreon until Standards.gg has its own.
 export const PATREON_URL = 'https://www.patreon.com/wowsims';
 
 export const SOCIALS = [

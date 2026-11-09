@@ -1,4 +1,5 @@
 import i18n from '@i18n/config';
+import { REPO_URL } from '@sim/constants/other';
 import { RELEASE, withRelease } from '@testing/build_info';
 import { render, screen } from '@testing-library/react';
 import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest';
@@ -22,7 +23,7 @@ describe('ReleaseInfo', () => {
 		render(<ReleaseInfo />);
 		expect(screen.getByRole('paragraph').textContent).toBe('Game 1.60.1.70450 · Built 2026-10-18 · 2fe052c');
 		const link = screen.getByRole('link', { name: '2fe052c' });
-		expect(link.getAttribute('href')).toBe(`https://github.com/wowsims/forever/commit/${RELEASE.commit}`);
+		expect(link.getAttribute('href')).toBe(`${REPO_URL}/commit/${RELEASE.commit}`);
 		expect(link.getAttribute('rel')).toBe('noopener noreferrer');
 	});
 

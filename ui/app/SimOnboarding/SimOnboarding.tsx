@@ -29,7 +29,7 @@ export const SimOnboarding = ({ host, simReady }: SimOnboardingProps) => {
 	return <OnboardingOutlet ready={simReady && !!host} autoOpen={!isDevMode()} renderTour={renderTour} />;
 };
 
-const LOGO = '/forever/assets/img/WoW-Simulator-Icon.png';
+const LOGO = '/forever/assets/img/standards-gg-hadal-mark.svg';
 
 // The links a card's words can carry, as `<addon>…</addon>` and `<discord>…</discord>`.
 const LINKS = {
