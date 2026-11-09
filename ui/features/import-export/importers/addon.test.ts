@@ -2,6 +2,7 @@
 // anything missing from the pasted text stays as it was.
 import { APLRotation, APLRotation_Type as APLRotationType } from '@generated/proto/apl';
 import { Profession, Race } from '@generated/proto/common';
+import { BRAND } from '@sim/constants/brand';
 import { makeIndividualSim, serveDatabase } from '@testing/sim/individual_sim';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
@@ -21,7 +22,7 @@ describe('ADDON_IMPORTER', () => {
 	// The failure is swallowed by design: no GitHub, no version warning, and the import still runs.
 	it('asks GitHub for the addon version once, at module load', () => {
 		expect(fetchStub).toHaveBeenCalledTimes(1);
-		expect(fetchStub.mock.calls[0][0]).toBe('https://api.github.com/repos/wowsims/exporter/releases/latest');
+		expect(fetchStub.mock.calls[0][0]).toBe(BRAND.addonReleasesApi);
 	});
 
 	it('rejects a payload that is not an addon export', async () => {

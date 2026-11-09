@@ -1,6 +1,7 @@
 import { APLRotation } from '@generated/proto/apl';
 import { Class, EquipmentSpec, Profession, Race } from '@generated/proto/common';
 import i18n from '@i18n/config';
+import { BRAND } from '@sim/constants/brand';
 import { CHARACTER_LEVEL } from '@sim/constants/mechanics';
 import { Database } from '@sim/proto/database';
 import { fromJsonLenient } from '@sim/proto/lenient_json';
@@ -11,7 +12,7 @@ import { finishIndividualImport } from './finish_individual_import';
 import type { ImporterDefinition } from './types';
 
 function getWSEVersion(): Promise<string | null> {
-	return fetch('https://api.github.com/repos/wowsims/exporter/releases/latest')
+	return fetch(BRAND.addonReleasesApi)
 		.then(resp => {
 			return resp.json().then(json => {
 				return json.tag_name as string;

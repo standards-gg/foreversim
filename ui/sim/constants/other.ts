@@ -38,9 +38,9 @@ export const WOWSIMS_URL = 'https://www.wowsims.com/';
 // The site list and footer content every WoWSims site shares, published by wowsims/wowsims.github.io
 export const VERSIONS_MANIFEST_URL = `${WOWSIMS_URL}versions.json`;
 export const DISCORD_URL = BRAND.discordUrl;
-export const GITHUB_ORG_URL = BRAND.repoUrl;
-export const ADDON_URL = 'https://www.curseforge.com/wow/addons/wowsimsexporter';
-export const PATREON_URL = 'https://www.patreon.com/wowsims';
+export const GITHUB_ORG_URL = BRAND.githubUrl;
+export const ADDON_URL = BRAND.addonUrl;
+export const PATREON_URL = BRAND.patreonUrl;
 
 export const SOCIALS = [
 	{ key: 'discord', href: DISCORD_URL, className: 'ui-social-link', icon: 'discord', tooltip: 'info.discord' },

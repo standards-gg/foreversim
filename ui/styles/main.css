@@ -70,6 +70,7 @@
 
 @import '../app/header/SimTitleDropdown/SimTitleDropdown.css';
 @import '../app/landing/Landing.css';
+@import '../app/brand/brand.css';
 
 @source '../app';
 @source '../features';
